@@ -70,6 +70,20 @@ public class Main {
                     }
                     mostrarEstado();
                     break;
+                case 5:
+                    if(energia <= 3)
+                        System.out.println("Estoy muy cansado para cantar.");
+                    else {
+                        diversion += 2;
+                        if (diversion > 10)
+                            diversion = 10;
+                        energia -= 2;
+                        if (energia < 0)
+                            energia = 0;
+                        mostrarCanto();
+                    }
+                    mostrarEstado();
+                    break;
             }
         }
     }
@@ -79,12 +93,13 @@ public class Main {
 
         int opcion = -1;
 
-        while (opcion < 0 || opcion > 4) {
+        while (opcion < 0 || opcion > 5) {
 
             System.out.println("1. Estado");
             System.out.println("2. Comer");
             System.out.println("3. Jugar");
             System.out.println("4. Dormir");
+            System.out.println("5. Cantar");
             System.out.println("----------------");
             System.out.println("0. Salir");
             System.out.print("Selecciona una opción: ");
@@ -96,7 +111,7 @@ public class Main {
 
             opcion = lector.nextInt();
 
-            if (opcion < 0 || opcion > 4) {
+            if (opcion < 0 || opcion > 5) {
                 System.out.println("Opción no válida. Inténtalo de nuevo.");
             }
         }
@@ -131,5 +146,12 @@ public class Main {
                     " /|_|\\\n" +
                     "  | |\n");
         }
+    }
+
+    private static void mostrarCanto() {
+        System.out.print("" +
+                    " (^O^) ¡AAAAA!\n" +
+                    " /|_|\\\n" +
+                    "  | |\n");
     }
 }
