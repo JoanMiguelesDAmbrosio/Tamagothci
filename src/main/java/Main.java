@@ -29,6 +29,7 @@ public class Main {
                     if (diversion > 0)
                         diversion -= 1;
                 }
+                mostrarEstado();
                 break;
         }
     }
