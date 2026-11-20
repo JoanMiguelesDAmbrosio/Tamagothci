@@ -2,11 +2,17 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+
+    static int saciedad = 6;
+    static int energia = 6;
+    static int diversion = 6;
+
     static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         IO.println(String.format("Hola Git!"));
 
+        mostrarEstado();
         menuPrincipal();
     }
 
@@ -38,5 +44,34 @@ public class Main {
         }
 
         return opcion;
+    }
+
+    private static void mostrarEstado() {
+        if (saciedad <= 0 || energia <= 0 || diversion <= 0){
+            System.out.print("" +
+                    " (x_x) :( Game Over ):\n" +
+                    " /|_|\\\n" +
+                    "  | |\n");
+        } else if (saciedad <= 4) {
+            System.out.print("" +
+                    " (•︵•) ¡ Tengo hambre! \uD83C\uDF57\n" +
+                    " /|x|\\\n" +
+                    "  | |\n");
+        } else if (energia <= 4) {
+            System.out.print(
+                    " (-_-) Zzz\n" +
+                    " /|_|\\\n" +
+                    "  | |\n");
+        } else if (diversion <= 4) {
+            System.out.print("" +
+                    " (-︵-) Estoy aburrido\n" +
+                    " /|_|\\ ¡Juega conmigo!\n" +
+                    "  / \\\n");
+        } else {
+            System.out.print("" +
+                    " (•‿•) ¡Estoy feliz!\n" +
+                    " /|_|\\\n" +
+                    "  | |\n");
+        }
     }
 }
