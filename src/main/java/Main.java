@@ -33,6 +33,8 @@ public class Main {
                             saciedad = 10;
                         if (diversion > 0)
                             diversion -= 1;
+                        if (energia > 0)
+                            energia -= 1;
                     }
                     mostrarEstado();
                     break;
@@ -40,13 +42,15 @@ public class Main {
                     if (diversion >= 10)
                         System.out.println("No quiero jugar.");
                     else {
-                        diversion += 3;
+                        diversion += 4;
                         if (diversion > 10)
                             diversion = 10;
-                        if (saciedad > 0)
-                            saciedad -= 1;
-                        if (energia > 0)
-                            energia -= 1;
+                        saciedad -= 2;
+                        if (saciedad < 0)
+                            saciedad = 0;
+                        energia -= 2;
+                        if (energia < 0)
+                            energia = 0;
                     }
                     mostrarEstado();
                     break;
@@ -57,10 +61,10 @@ public class Main {
                         energia += 3;
                         if (energia > 10)
                             energia = 10;
-                        saciedad -= 3;
+                        saciedad -= 5;
                         if (saciedad < 0)
                             saciedad = 0;
-                        diversion -= 3;
+                        diversion -= 5;
                         if (diversion < 0)
                             diversion = 0;
                     }
