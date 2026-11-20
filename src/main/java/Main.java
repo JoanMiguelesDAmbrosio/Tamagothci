@@ -11,40 +11,62 @@ public class Main {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         IO.println(String.format("Hola Git!"));
+        mostrarEstado();
 
+        int accion = 1;
+        boolean playing = true;
 
-        int accion = menuPrincipal();
-
-        switch (accion) {
-            case 1:
-                mostrarEstado();
-                break;
-            case 2:
-                if (saciedad >= 10)
-                    System.out.println("No tengo hambre.");
-                else {
-                    saciedad += 3;
-                    if (saciedad > 10)
-                        saciedad = 10;
-                    if (diversion > 0)
-                        diversion -= 1;
-                }
-                mostrarEstado();
-                break;
-            case 3:
-                if (diversion >= 10)
-                    System.out.println("No quiero jugar.");
-                else {
-                    diversion += 3;
-                    if (diversion > 10)
-                        diversion = 10;
-                    if (saciedad > 0)
-                        saciedad -= 1;
-                    if (energia > 0)
-                        energia -= 1;
-                }
-                mostrarEstado();
-                break;
+        while (playing) {
+            accion = menuPrincipal();
+            switch (accion) {
+                case 0:
+                    playing = false;
+                case 1:
+                    mostrarEstado();
+                    break;
+                case 2:
+                    if (saciedad >= 10)
+                        System.out.println("No tengo hambre.");
+                    else {
+                        saciedad += 3;
+                        if (saciedad > 10)
+                            saciedad = 10;
+                        if (diversion > 0)
+                            diversion -= 1;
+                    }
+                    mostrarEstado();
+                    break;
+                case 3:
+                    if (diversion >= 10)
+                        System.out.println("No quiero jugar.");
+                    else {
+                        diversion += 3;
+                        if (diversion > 10)
+                            diversion = 10;
+                        if (saciedad > 0)
+                            saciedad -= 1;
+                        if (energia > 0)
+                            energia -= 1;
+                    }
+                    mostrarEstado();
+                    break;
+                case 4:
+                    if (energia >= 10)
+                        System.out.println("No quiero dormir.");
+                    else {
+                        energia += 3;
+                        if (energia > 10)
+                            energia = 10;
+                        saciedad -= 3;
+                        if (saciedad < 0)
+                            saciedad = 0;
+                        diversion -= 3;
+                        if (diversion < 0)
+                            diversion = 0;
+                    }
+                    mostrarEstado();
+                    break;
+            }
         }
     }
 
