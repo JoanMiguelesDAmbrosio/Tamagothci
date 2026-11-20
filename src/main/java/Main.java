@@ -31,6 +31,20 @@ public class Main {
                 }
                 mostrarEstado();
                 break;
+            case 3:
+                if (diversion >= 10)
+                    System.out.println("No quiero jugar.");
+                else {
+                    diversion += 3;
+                    if (diversion > 10)
+                        diversion = 10;
+                    if (saciedad > 0)
+                        saciedad -= 1;
+                    if (energia > 0)
+                        energia -= 1;
+                }
+                mostrarEstado();
+                break;
         }
     }
 
